@@ -6,6 +6,7 @@ use App\Day;
 use App\day_ride;
 use App\Ride;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use PhpParser\Node\Stmt\Echo_;
 use Validator;
 use Illuminate\Support\Facades\Auth;
@@ -52,16 +53,25 @@ class HomeController extends Controller
             'departure_time' => $request['departure_time'],
         ]);
 
+        if ($ride->save()){
+            $insertedId = $ride->id;
 
-        $insertedId = $ride->id;
-        foreach ($request['days'] as $day)
-        {
-            day_ride::create([
-                'ride_id' => $insertedId,
-                'day_id' => $day,
-            ]);
+            foreach ($request['days'] as $day)
+            {
+                day_ride::create([
+                    'ride_id' => $insertedId,
+                    'day_id' => $day,
+                ]);
+            }
+            Session::flash('message','Guardado Correctamente!');
+            Session::flash('class', 'success');
+        }else{
+            Session::flash('message','Ha ocurrido un error!');
+            Session::flash('class', 'danger');
         }
-        return redirect('home');
+
+
+        return redirect('/home');
     }
 
     /**
