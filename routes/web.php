@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', ['rides'=>\App\Ride::paginate(5)]);
 });
 
 Auth::routes();

@@ -34,22 +34,13 @@
 
                     <!--lista de tus rides-->
                     <div class="well">
-                        <div class="row">
-                            <div class="col-xs-6"><h6>Lista de tus Rides Actuales</h6>
-                                @if(Session::has('message'))
-                                    <div class="alert alert-{{Session::get('class')}}">{{Session::get('message')}}</div>
-                                @endif</div>
-                            <div class="col-xs-6 text-right"><a class="btn-sm go-black" data-toggle="tab" data-target="#rides">
-                                    <span class="glyphicon glyphicon-plus"></span></a></div>
-                        </div>
-                        <br>
                         <table class="table">
                             <thead class="row">
                             <tr>
-                                <th class="col-xs-4">Nombre</th>
-                                <th class="col-xs-4">Salida</th>
-                                <th class="col-xs-4">Destino</th>
-                                <th class="col-xs-4">Acciones</th>
+                                <th class="col-lg-2 col-xs-1">Nombre</th>
+                                <th class="col-lg-4 col-xs-3">Salida</th>
+                                <th class="col-lg-4 col-xs-3">Destino</th>
+                                <th class="col-lg-2 col-xs-3">Acciones</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -65,13 +56,6 @@
                                  @endforeach
                             </tbody>
                         </table>
-                        <br>
-                        <div class="row">
-                            <div class="col-xs-6"></div>
-                            <div class="col-xs-6 text-right"><a class="btn-sm go-black" data-toggle="tab" data-target="#rides">
-                                    <span class="glyphicon glyphicon-plus"></span></a></div>
-                        </div>
-
                     </div>
                 </div>
 
@@ -205,6 +189,9 @@
                                             <button type="submit" class="btn btn-primary">
                                                 Create
                                             </button>
+                                            @if(Session::has('message'))
+                                                <div class="alert alert-{{Session::get('class')}}">{{Session::get('message')}}</div>
+                                             @endif
                                         </div>
                                     </div>
                                 </form>

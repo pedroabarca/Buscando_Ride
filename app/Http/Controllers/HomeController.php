@@ -63,8 +63,6 @@ class HomeController extends Controller
                     'day_id' => $day,
                 ]);
             }
-            Session::flash('message','Guardado Correctamente!');
-            Session::flash('class', 'success');
         }else{
             Session::flash('message','Ha ocurrido un error!');
             Session::flash('class', 'danger');

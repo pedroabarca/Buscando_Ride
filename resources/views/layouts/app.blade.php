@@ -22,7 +22,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-inverse navbar-static-top">
+        <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0px">
             <div class="container">
                 <div class="navbar-header">
 
@@ -78,7 +78,11 @@
             </div>
         </nav>
 
+
+        <div style="background-color: #222222">
+            <br>
         @yield('content')
+        </div>
     </div>
 
     <!-- Scripts -->
